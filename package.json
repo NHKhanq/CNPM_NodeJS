@@ -1,0 +1,22 @@
+{
+  "name": "cnpm_nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NHKhanq/CNPM_NodeJS.git"
+  },
+  "author": "Tan, Khang, Thanh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NHKhanq/CNPM_NodeJS/issues"
+  },
+  "homepage": "https://github.com/NHKhanq/CNPM_NodeJS#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
