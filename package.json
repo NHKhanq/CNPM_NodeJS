@@ -18,5 +18,9 @@
   "homepage": "https://github.com/NHKhanq/CNPM_NodeJS#readme",
   "dependencies": {
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.1"
   }
 }
