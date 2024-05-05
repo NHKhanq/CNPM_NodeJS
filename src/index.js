@@ -5,6 +5,8 @@ const { engine } = require("express-handlebars");
 const app = express();
 const port = 5000;
 
+app.use(express.static(path.join(__dirname, 'public')))
+
 //morgan
 app.use(morgan('combined'))
 
