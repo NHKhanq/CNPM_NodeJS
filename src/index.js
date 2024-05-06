@@ -14,13 +14,11 @@ app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'resources/views'))
 console.log('PATH: ', path.join(__dirname, 'resources/views'))
 
-app.get('/', (req, res) => {
-    res.render('home');
-})
+//route
+app.get('/login',LoginController.login)
+app.get('/', HomeController.home)
+app.get('/search', SearchController.search)
 
-app.get('/admin', (req, res) => {
-  res.render('admin');
-})
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
