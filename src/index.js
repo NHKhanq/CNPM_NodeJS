@@ -5,8 +5,20 @@ const { engine } = require("express-handlebars");
 const app = express();
 const port = 5000;
 
+//import function controller
+const HomeController = require('./app/Controllers/HomeController')
+const LoginController =  require('./app/Controllers/LoginController')
+const SearchController = require('./app/Controllers/SearchController')
+
+//static file
+app.use(express.static(path.join(__dirname, 'public')))
+
 //morgan
 app.use(morgan('combined'))
+
+//improt method BODY in express
+app.use(express.urlencoded())//from
+app.use(express.json()); //fetch, axios
 
 //handlebar
 app.engine('handlebars', engine());
@@ -14,13 +26,11 @@ app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'resources/views'))
 console.log('PATH: ', path.join(__dirname, 'resources/views'))
 
-app.get('/', (req, res) => {
-    res.render('home');
-})
+//route
+app.get('/login',LoginController.login)
+app.get('/', HomeController.home)
+app.get('/search', SearchController.search)
 
-app.get('/admin', (req, res) => {
-  res.render('admin');
-})
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
