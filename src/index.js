@@ -13,14 +13,11 @@ const SearchController = require('./app/Controllers/SearchController')
 //static file
 app.use(express.static(path.join(__dirname, 'public')))
 
-//morgan
 app.use(morgan('combined'))
 
-//improt method BODY in express
 app.use(express.urlencoded())//from
 app.use(express.json()); //fetch, axios
 
-//handlebar
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'resources/views'))
