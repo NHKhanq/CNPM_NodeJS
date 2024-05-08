@@ -7,7 +7,17 @@ const port = 5000;
 
 app.use(express.static(path.join(__dirname, 'public')))
 
+//import function controller
+const HomeController = require('./app/Controllers/HomeController')
+const LoginController =  require('./app/Controllers/LoginController')
+const SearchController = require('./app/Controllers/SearchController')
+
+//static file
+app.use(express.static(path.join(__dirname, 'public')))
+
 app.use(morgan('combined'))
+
+app.use(express.urlencoded())//from
 
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
@@ -21,5 +31,5 @@ app.get('/search', SearchController.search)
 
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`App listening on port ${port}`)
 })
