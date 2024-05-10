@@ -6,7 +6,5 @@ const Product = new Schema({
   });
 
 
-//   https://github.com/Automattic/mongoose
-
 
 module.exports = mongoose.model('Product', Product);
