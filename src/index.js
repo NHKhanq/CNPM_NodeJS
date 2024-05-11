@@ -5,8 +5,6 @@ const { engine } = require("express-handlebars");
 const app = express();
 const port = 5000;
 
-app.use(express.static(path.join(__dirname, 'public')))
-
 //import function controller
 const HomeController = require('./app/Controllers/HomeController')
 const LoginController =  require('./app/Controllers/LoginController')
@@ -18,6 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(morgan('combined'))
 
 app.use(express.urlencoded())//from
+app.use(express.json()); //fetch, axios
 
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
