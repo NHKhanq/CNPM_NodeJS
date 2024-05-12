@@ -1,2 +1,31 @@
 * {
     color: red; }
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; }
+  
+  .card {
+    width: 220px;
+    padding-top: 10px;
+    border-radius: 5%; }
+  
+  .card-text {
+    color: #D0021C; }
+  
+  .card-img-top {
+    width: 214px;
+    height: 214px;
+    padding: 10px;
+    justify-content: center;
+    object-fit: cover;
+    transition: transform 0.3s ease; }
+  
+  .card-img-top:hover {
+    transform: scale(1.05); }
+  
+  .card-title a {
+    color: #474C51;
+    text-decoration: none; }
+  
+  .card-title a:hover {
+    text-decoration: none; }
