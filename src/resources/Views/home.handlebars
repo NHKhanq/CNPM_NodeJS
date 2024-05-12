@@ -1,1 +1,16 @@
-<h1>home</h1>
+<div class="container mt-4">
+    <div class="row">
+        {{#each Products}}
+        <div class="col-sm-4 col-lg-3">
+            <div class="card">
+                <img class="card-img-top" src="{{this.image_url}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="">{{this.name}}</a></h5>
+                    <h4 class="card-text">{{this.price}}</h4>
+                    <a href="#" class="btn btn-primary">Mua ngay</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
