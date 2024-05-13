@@ -5,12 +5,6 @@ const { engine } = require("express-handlebars");
 const app = express();
 const port = 5000;
 
-//connect to DB
-const db = require('./config/db/index.js')
-db.connect()
-
-app.use(express.static(path.join(__dirname, 'public')))
-
 //import function controller
 const HomeController = require('./app/Controllers/HomeController')
 const LoginController =  require('./app/Controllers/LoginController')

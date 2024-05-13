@@ -8,4 +8,8 @@ const Product = new Schema({
     image_url: String
 });
 
+
+//   https://github.com/Automattic/mongoose
+
+
 module.exports = mongoose.model('Product', Product);
