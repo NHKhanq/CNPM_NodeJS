@@ -1,8 +1,8 @@
 * {
-    color: red; }
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box; }
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
   
   .card {
     width: 220px;
@@ -18,6 +18,7 @@
     padding: 10px;
     justify-content: center;
     object-fit: cover;
+    border-radius: 10%;
     transition: transform 0.3s ease; }
   
   .card-img-top:hover {
