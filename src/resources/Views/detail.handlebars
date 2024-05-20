@@ -1,0 +1,56 @@
+  <div class="container mt-5">
+<div class="container mt-5">
+    <div class="row">
+        <!-- Chi tiết sản phẩm -->
+        <div class="col-md-8">
+            <h2>{{productdetail.name}}</h2>
+            <!-- Thêm thẻ slide nếu cần -->
+            <img src="{{productdetail.image_url}}" alt="{{productdetail.name}}" class="mt-4">
+            <p>{{productdetail.description}}</p>
+      </div>
+        <!-- Thông tin sản phẩm -->
+        <div class="col-md-4 mt-4">
+            <div class="card mb-3" style="width: 400px; height: 410px;">
+                <div class="card-body">
+                    <h5 class="card-title">Chi tiết sản phẩm</h5>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Tên</th>
+                                <td>{{productdetail.name}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Giá</th>
+                                <!-- Sửa đổi class của span -->
+                                <td><span class="money" id="formattedPrice">{{productdetail.price}} VNĐ</span></td>
+                            </tr>
+                            <!-- Thêm các trường khác từ cơ sở dữ liệu -->
+                            <tr>
+                                <th scope="row">Màn Hình</th>
+                                <td>{{productdetail.detail.screen}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Chip</th>
+                                <td>{{productdetail.detail.chip}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">RAM</th>
+                                <td>{{productdetail.detail.ram}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Pin</th>
+                                <td>{{productdetail.detail.pin}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Hãng</th>
+                                <td>{{productdetail.detail.brand}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

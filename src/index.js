@@ -5,11 +5,8 @@ const { engine } = require("express-handlebars");
 const app = express();
 const port = 5000;
 
-//connect to DB
 const db = require('./config/db/index.js')
 db.connect()
-
-app.use(express.static(path.join(__dirname, 'public')))
 
 //import function controller
 const HomeController = require('./app/Controllers/HomeController')
@@ -17,6 +14,7 @@ const LoginController =  require('./app/Controllers/LoginController')
 const SearchController = require('./app/Controllers/SearchController')
 const Product = require("./app/Controllers/ProductController.js")
 const ProductController = require("./app/Controllers/ProductController.js")
+const CreateController = require("./app/Controllers/CreateController.js")
 
 //static file
 app.use(express.static(path.join(__dirname, 'public')))
@@ -36,8 +34,10 @@ app.get('/login',LoginController.login)
 app.get('/', HomeController.home)
 app.get('/search', SearchController.search)
 app.get('/Product/:slug', ProductController.detail)
+app.get('/create', CreateController.create)
+app.post('/create/post', CreateController.post)
 
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`App listening on port ${port}`)
 })
