@@ -16,7 +16,16 @@
     </div>
 
         {{> footer}}
-
+        
+  <script>
+    // Hàm định dạng số tiền với dấu phân cách
+    function formatMoney(number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    // Lấy số tiền từ phần tử có id là "formattedPrice" và định dạng nó
+    const priceElement = document.getElementById("formattedPrice");
+    priceElement.textContent = formatMoney(priceElement.textContent);
+    </script>
 
     </div>
 
