@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Thêm Sản Phẩm</h2>
+  <form id="productForm" method="POST" action="/create/post">
+    <div class="form-group">
+      <label for="name">Tên Sản Phẩm:</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Mô Tả:</label>
+      <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+    </div>
+     <div class="form-group">
+      <label for="image_url">Hình ảnh:</label>
+      <input type="text" class="form-control" id="image_url" name="image_url" required>
+    </div>
+    <div class="form-group">
+      <label for="price">Giá:</label>
+      <input type="number" class="form-control" id="price" name="price" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Thêm Sản Phẩm</button>
+  </form>
+</div>
