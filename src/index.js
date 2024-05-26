@@ -1,41 +1,64 @@
-const path = require("path");
-const express = require("express");
-const morgan = require("morgan");
-const { engine } = require("express-handlebars");
-const app = express();
-const port = 5000;
+const path = require("path")
+const express = require("express")
+const morgan = require("morgan")
+const methodOverride = require('method-override')
+const { engine } = require("express-handlebars")
+const app = express()
+const port = 5000
+
+// Sử dụng body-parser để đọc dữ liệu từ form 
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: true }))
+//req.body
+
 
 const db = require('./config/db/index.js')
 db.connect()
 
-//import function controller
+
+app.engine('handlebars', engine())
+app.set('view engine', 'handlebars')
+app.set('views', path.join(__dirname, 'resources/views'))
+
+//express method override
+app.use(methodOverride('_method'))
+
 const HomeController = require('./app/Controllers/HomeController')
-const LoginController =  require('./app/Controllers/LoginController')
-const SearchController = require('./app/Controllers/SearchController')
-const Product = require("./app/Controllers/ProductController.js")
 const ProductController = require("./app/Controllers/ProductController.js")
 const CreateController = require("./app/Controllers/CreateController.js")
+const SearchController = require("./app/Controllers/SearchController.js")
+const OrderController = require("./app/Controllers/OrderController.js")
+const LoginController = require("./app/Controllers/LoginController.js")
+const MeController = require("./app/Controllers/MeController.js")
 
-//static file
+
+app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use(morgan('combined'))
+app.use(function (req, res, next) {
+  res.locals.showHeader = true;
+  res.locals.showFooter = true;
+  res.locals.showBody = true;
+  next();
+});
 
-app.use(express.urlencoded())//from
-app.use(express.json()); //fetch, axios
-
-app.engine('handlebars', engine());
-app.set('view engine', 'handlebars');
-app.set('views', path.join(__dirname, 'resources/views'))
-console.log('PATH: ', path.join(__dirname, 'resources/views'))
-
-//route
-app.get('/login',LoginController.login)
-app.get('/', HomeController.home)
-app.get('/search', SearchController.search)
-app.get('/Product/:slug', ProductController.detail)
+//routes
+app.get('/', (req, res) => {
+  res.render('login', { showHeader: false, showFooter: false });
+});
+app.post('/login/check', LoginController.check);
+app.get('/trangchu', HomeController.home)
 app.get('/create', CreateController.create)
+app.get('/search', SearchController.search)
+app.get('/me/store', MeController.store)
+app.get('/Product/:slug', ProductController.detail)
+app.get('/Product/detail/:slug/buy', ProductController.buy);
+app.get('/Product/:id/edit', ProductController.edit)
+app.delete('/Product/:id', ProductController.delete)
 app.post('/create/post', CreateController.post)
+app.post('/order', OrderController.order)
+app.put('/Product/:id', ProductController.update)
+
 
 
 app.listen(port, () => {
