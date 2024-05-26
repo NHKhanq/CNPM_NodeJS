@@ -18,11 +18,17 @@
   },
   "homepage": "https://github.com/NHKhanq/CNPM_NodeJS#readme",
   "dependencies": {
+    "express": "^4.18.2",
     "express-handlebars": "^7.1.2",
-    "express": "^4.18.2"
+    "express-session": "^1.17.3",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.0.0",
+    "mongoose-slug-updater": "^3.3.0",
+    "multer": "^1.4.5-lts.1"
   },
   "devDependencies": {
     "morgan": "^1.10.0",
+    "node-sass": "^9.0.0",
     "nodemon": "^3.0.1"
   }
 }

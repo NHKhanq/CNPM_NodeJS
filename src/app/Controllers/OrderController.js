@@ -1,25 +1,15 @@
-const Order = require('../Model/Order');
+const Order = require('../Model/Order')
 
 class OrderController {
-    // POST /buy
-    buy(req, res) {
-      try {
-        const order = new Order(req.body);
-        order.save();
-        res.redirect('/');
-      } catch (error) {
-        res.status(400).json({ err: "ERROR!!!" });
-      }
-    }
-
-  // GET /order
-  order(req, res) {
+  // POST /order
+  async order(req, res) {
     try {
-      res.render('order');
+      const order = new Order(req.body)
+      await order.save();
     } catch (error) {
-      res.status(400).json({ err: "ERROR!!!" });
+      res.status(400).json({ err: "ERROR!!!" })
     }
   }
 }
 
-module.exports = new OrderController();
+module.exports = new OrderController()
