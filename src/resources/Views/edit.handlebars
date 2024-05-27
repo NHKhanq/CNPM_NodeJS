@@ -1,0 +1,47 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Chỉnh Sửa Sản Phẩm</h2>
+  <form id="productForm" method="POST" action="/Product/{{Product._id}}?_method=PUT">
+    <div class="form-group">
+      <label for="name">Tên Sản Phẩm:</label>
+      <input type="text" class="form-control" id="name" name="name" value="{{Product.name}}" required>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="descriptionScreen">Màn Hình:</label>
+         <input type="text" class="form-control" name="screen" value="{{Product.screen}}" required>
+        </div>
+        <div class="form-group">
+          <label for="descriptionChip">Chip:</label>
+          <input type="text" class="form-control" name="chip" value="{{Product.chip}}" required>
+        </div>
+       <div class="form-group">
+  <label for="image_url">Hình ảnh:</label>
+ <img src="/public/images/{{Product.image_url}}" alt="{{Product.image_url}}">
+ <br>
+ <label for="image_url">Chọn ảnh mới:</label>
+  <input type="file" class="form-control" name="image_url" value="/public/images/{{Product.image_url}}">
+</div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="descriptionPin">Pin:</label>
+          <input type="text" class="form-control" name="pin" value="{{Product.pin}}" required>
+        </div>
+        <div class="form-group">
+          <label for="descriptionBrand">Hãng:</label>
+          <input type="text" class="form-control" name="brand" value="{{Product.brand}}" required>
+        </div>
+        <div class="form-group">
+          <label for="descriptionRam">RAM:</label>
+          <input type="text" class="form-control"name="ram" value="{{Product.ram}}" required>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="price">Giá:</label>
+      <input type="text" class="form-control" name="price" value="{{Product.price}}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu lại</button>
+  </form>
+</div>
