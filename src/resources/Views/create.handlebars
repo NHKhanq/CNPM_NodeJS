@@ -1,21 +1,43 @@
 <div class="container mt-5">
   <h2 class="mb-4">Thêm Sản Phẩm</h2>
-  <form id="productForm" method="POST" action="/create/post">
+  <form id="productForm" method="POST" action="/create/post" enctype="multipart/form-data">
     <div class="form-group">
       <label for="name">Tên Sản Phẩm:</label>
       <input type="text" class="form-control" id="name" name="name" required>
     </div>
-    <div class="form-group">
-      <label for="description">Mô Tả:</label>
-      <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
-    </div>
-     <div class="form-group">
-      <label for="image_url">Hình ảnh:</label>
-      <input type="text" class="form-control" id="image_url" name="image_url" required>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="descriptionScreen">Màn Hình:</label>
+          <input type="text" class="form-control" name="screen" required>
+        </div>
+        <div class="form-group">
+          <label for="descriptionChip">Chip:</label>
+          <input type="text" class="form-control" name="chip" required>
+        </div>
+        <div class="form-group">
+          <label for="image_url">Hình ảnh:</label>
+          <input type="file" class="form-control" name="image_url" required>
+        </div>
+      </div>
+      <div class="col"> 
+        <div class="form-group">
+          <label for="descriptionPin">Pin:</label>
+          <input type="text" class="form-control" name="pin" required>
+        </div>
+        <div class="form-group">
+          <label for="descriptionBrand">Hãng:</label>
+          <input type="text" class="form-control" name="brand" required>
+        </div>
+        <div class="form-group">
+          <label for="descriptionRam">RAM:</label>
+          <input type="text" class="form-control" name="ram" required>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="price">Giá:</label>
-      <input type="number" class="form-control" id="price" name="price" required>
+      <input type="text" class="form-control" name="price" required>
     </div>
     <button type="submit" class="btn btn-primary">Thêm Sản Phẩm</button>
   </form>

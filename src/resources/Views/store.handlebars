@@ -1,0 +1,66 @@
+<div class="mt-4" id="prod">
+  <h3 class="mt-4">Sản phẩm của tôi</h3>
+  <div class="mt-4">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Tên sản phẩm</th>
+          <th scope="col">Giá sản phẩm</th>
+          <th scope="col" colspan="2">Ngày tạo</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each Products}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>{{this.price}}</td>
+          <td>{{this.createdAt}}</td>
+          <td>
+            <a href="/Product/{{this._id}}/edit" type="button" class="btn btn-info">Sửa</a>
+            <a href="" type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete" data-id="{{this._id}}">Xóa</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div id="delete" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Thông báo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn chắc chắn xóa sản phẩm?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="btn-delete-prod">Xóa</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form name="delete-prod-frm" method="POST"></form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let id;
+    let deleteFrm = document.forms['delete-prod-frm']
+    $('#delete').on('show.bs.modal', function (event) {
+      const button = $(event.relatedTarget);
+      id = button.data('id');
+    });
+
+    const btnDeleteProd = document.getElementById('btn-delete-prod');
+    btnDeleteProd.addEventListener('click', function () {
+      deleteFrm.action = '/Product/' + id + '?_method=DELETE';
+      deleteFrm.submit();
+    });
+  });
+</script>

@@ -1,0 +1,29 @@
+version: '3.7'
+
+services: 
+  node:
+    container_name: node_server
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    ports: 
+      - 5000:5000
+    volumes: 
+      - .:/app
+    command: npm start
+    depends_on:
+      - mongo_db
+    environment:
+      DB_ENDPOINT: "mongodb://mongo_db:27017/nodejs-dev"
+
+  mongo_db: 
+    container_name: mongo
+    image: mongo:latest
+    restart: always
+    ports: 
+      - 27018:27017
+    volumes:
+      - mongo_db:/data/db
+
+volumes: 
+  mongo_db:
