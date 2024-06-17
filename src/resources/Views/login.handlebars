@@ -1,26 +1,94 @@
-  <style>
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f8f9fa;
-    }
-  </style>
-  
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng nhập</title>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: #f8f9fa;
+  font-family: 'Arial', sans-serif;
+}
 
-<div class="login-container mt-4">
+.login-container {
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 320px;
+}
+
+h2 {
+  color: #5D3FD3;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: .5rem;
+  color: #333333;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #D3D3D3;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #5D3FD3;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #7A5AD3;
+}
+
+/* Thêm một số hiệu ứng khi focus vào input */
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #5D3FD3;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(93, 63, 211, 0.2);
+}
+
+</style>
+</head>
+<body>
+<div class="login-container">
     <h2 class="text-center">Đăng nhập</h2>
-<form action="/login/check" method="POST">
-      <div class="form-group">
-        <label for="username">Tên đăng nhập:</label>
-        <input type="text" class="form-control" name="username" placeholder="Nhập tên đăng nhập">
-      </div>
-      <div class="form-group">
-        <label for="password">Mật khẩu:</label>
-        <input type="password" class="form-control" name="password" placeholder="Nhập mật khẩu">
-      </div>
-      <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+    <form action="/login/check" method="POST">
+        <div class="form-group">
+            <label for="username">Tên đăng nhập:</label>
+            <input type="text" class="form-control" name="username" placeholder="Nhập tên đăng nhập" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Mật khẩu:</label>
+            <input type="password" class="form-control" name="password" placeholder="Nhập mật khẩu" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
     </form>
 </div>
+</body>
+</html>
